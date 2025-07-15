@@ -1,0 +1,135 @@
+grace_NEBs:
+  constraint_z: 13
+  constraints: true
+  fmax: 0.06
+  interpolate: true
+  mic: true
+  model:
+    _cls: mlipx.nodes.generic_ase.GenericASECalculator
+    class_name: grace_fm
+    device: null
+    kwargs:
+      model: GRACE-2L-OAM
+    module: tensorpotential.calculator
+  n_steps: 500
+  optimizer: FIRE
+  relax: true
+initialize_LoadDataFile:
+  start: 0
+  step: 1
+  stop: null
+mace_agnesi_NEBs:
+  constraint_z: 13
+  constraints: true
+  fmax: 0.06
+  interpolate: true
+  mic: true
+  model:
+    _cls: mlipx.nodes.generic_ase.GenericASECalculator
+    class_name: MACECalculator
+    device: auto
+    kwargs:
+      dtype: float64
+      model_paths: /mnt/nfs/ml_training/pretrained_mace_models/mace_agnesi_medium.model
+    module: mace.calculators
+  n_steps: 500
+  optimizer: FIRE
+  relax: true
+mace_matpes-omat_NEBs:
+  constraint_z: 13
+  constraints: true
+  fmax: 0.06
+  interpolate: true
+  mic: true
+  model:
+    _cls: mlipx.nodes.generic_ase.GenericASECalculator
+    class_name: mace_mp
+    device: cpu
+    kwargs:
+      dtype: float64
+      model: /mnt/nfs/ml_training/pretrained_mace_models/MACE-matpes-pbe-omat-ft.model
+    module: mace.calculators
+  n_steps: 500
+  optimizer: FIRE
+  relax: true
+mace_mpa0_NEBs:
+  constraint_z: 13
+  constraints: true
+  fmax: 0.06
+  interpolate: true
+  mic: true
+  model:
+    _cls: mlipx.nodes.generic_ase.GenericASECalculator
+    class_name: mace_mp
+    device: auto
+    kwargs:
+      default_dtype: float64
+      dispersion: false
+      dispersion_cutoff: 21.167088422553647
+      model: /mnt/nfs/ml_training/pretrained_mace_models/mace-mpa-0-medium.model
+    module: mace.calculators
+  n_steps: 500
+  optimizer: FIRE
+  relax: true
+mattersim_NEBs:
+  constraint_z: 13
+  constraints: true
+  fmax: 0.06
+  interpolate: true
+  mic: true
+  model:
+    _cls: mlipx.nodes.generic_ase.GenericASECalculator
+    class_name: MatterSimCalculator
+    device: null
+    kwargs: null
+    module: mattersim.forcefield
+  n_steps: 500
+  optimizer: FIRE
+  relax: true
+ocp_NEBs:
+  constraint_z: 13
+  constraints: true
+  fmax: 0.06
+  interpolate: true
+  mic: true
+  model:
+    _cls: mlipx.nodes.generic_ase.GenericASECalculator
+    class_name: OCPCalculator
+    device: null
+    kwargs:
+      checkpoint_path: /mnt/nfs/ml_training/pretrained_ocp_models/eqV2_31M_omat_mp_salex.pt
+      seed: 0
+    module: fairchem.core
+  n_steps: 500
+  optimizer: FIRE
+  relax: true
+orb_v2_NEBs:
+  constraint_z: 13
+  constraints: true
+  fmax: 0.06
+  interpolate: true
+  mic: true
+  model:
+    _cls: models.OrbCalc
+    device: null
+    name: orb_v2
+  n_steps: 500
+  optimizer: FIRE
+  relax: true
+sevennet_NEBs:
+  constraint_z: 13
+  constraints: true
+  fmax: 0.06
+  interpolate: true
+  mic: true
+  model:
+    _cls: mlipx.nodes.generic_ase.GenericASECalculator
+    class_name: SevenNetCalculator
+    device: auto
+    kwargs:
+      modal: mpa
+      model: 7net-mf-ompa
+    module: sevenn.sevennet_calculator
+  n_steps: 500
+  optimizer: FIRE
+  relax: true
