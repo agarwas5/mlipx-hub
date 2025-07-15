@@ -1,0 +1,155 @@
+plots:
+- mace_agnesi_NEBs_results:
+    x:
+      nodes/mace_agnesi/NEBs/results.csv: data_id
+    y:
+      nodes/mace_agnesi/NEBs/results.csv: potential_energy
+- mace_mpa0_NEBs_results:
+    x:
+      nodes/mace_mpa0/NEBs/results.csv: data_id
+    y:
+      nodes/mace_mpa0/NEBs/results.csv: potential_energy
+- mace_matpes-omat_NEBs_results:
+    x:
+      nodes/mace_matpes-omat/NEBs/results.csv: data_id
+    y:
+      nodes/mace_matpes-omat/NEBs/results.csv: potential_energy
+- sevennet_NEBs_results:
+    x:
+      nodes/sevennet/NEBs/results.csv: data_id
+    y:
+      nodes/sevennet/NEBs/results.csv: potential_energy
+- mattersim_NEBs_results:
+    x:
+      nodes/mattersim/NEBs/results.csv: data_id
+    y:
+      nodes/mattersim/NEBs/results.csv: potential_energy
+- ocp_NEBs_results:
+    x:
+      nodes/ocp/NEBs/results.csv: data_id
+    y:
+      nodes/ocp/NEBs/results.csv: potential_energy
+- grace_NEBs_results:
+    x:
+      nodes/grace/NEBs/results.csv: data_id
+    y:
+      nodes/grace/NEBs/results.csv: potential_energy
+- orb_v2_NEBs_results:
+    x:
+      nodes/orb_v2/NEBs/results.csv: data_id
+    y:
+      nodes/orb_v2/NEBs/results.csv: potential_energy
+stages:
+  grace_NEBs:
+    cmd: zntrack run mlipx.nodes.nebs.NEBs --name grace_NEBs
+    deps:
+    - nodes/initialize/LoadDataFile/node-meta.json
+    metrics:
+    - nodes/grace/NEBs/node-meta.json:
+        cache: false
+    outs:
+    - nodes/grace/NEBs/frames.xyz
+    - nodes/grace/NEBs/neb_trajectory.traj
+    - nodes/grace/NEBs/results.csv
+    params:
+    - grace_NEBs
+  initialize_LoadDataFile:
+    cmd: zntrack run mlipx.nodes.io.LoadDataFile --name initialize_LoadDataFile
+    deps:
+    - neb.xyz
+    metrics:
+    - nodes/initialize/LoadDataFile/node-meta.json:
+        cache: false
+    params:
+    - initialize_LoadDataFile
+  mace_agnesi_NEBs:
+    cmd: zntrack run mlipx.nodes.nebs.NEBs --name mace_agnesi_NEBs
+    deps:
+    - nodes/initialize/LoadDataFile/node-meta.json
+    metrics:
+    - nodes/mace_agnesi/NEBs/node-meta.json:
+        cache: false
+    outs:
+    - nodes/mace_agnesi/NEBs/frames.xyz
+    - nodes/mace_agnesi/NEBs/neb_trajectory.traj
+    - nodes/mace_agnesi/NEBs/results.csv
+    params:
+    - mace_agnesi_NEBs
+  mace_matpes-omat_NEBs:
+    cmd: zntrack run mlipx.nodes.nebs.NEBs --name mace_matpes-omat_NEBs
+    deps:
+    - nodes/initialize/LoadDataFile/node-meta.json
+    metrics:
+    - nodes/mace_matpes-omat/NEBs/node-meta.json:
+        cache: false
+    outs:
+    - nodes/mace_matpes-omat/NEBs/frames.xyz
+    - nodes/mace_matpes-omat/NEBs/neb_trajectory.traj
+    - nodes/mace_matpes-omat/NEBs/results.csv
+    params:
+    - mace_matpes-omat_NEBs
+  mace_mpa0_NEBs:
+    cmd: zntrack run mlipx.nodes.nebs.NEBs --name mace_mpa0_NEBs
+    deps:
+    - nodes/initialize/LoadDataFile/node-meta.json
+    metrics:
+    - nodes/mace_mpa0/NEBs/node-meta.json:
+        cache: false
+    outs:
+    - nodes/mace_mpa0/NEBs/frames.xyz
+    - nodes/mace_mpa0/NEBs/neb_trajectory.traj
+    - nodes/mace_mpa0/NEBs/results.csv
+    params:
+    - mace_mpa0_NEBs
+  mattersim_NEBs:
+    cmd: zntrack run mlipx.nodes.nebs.NEBs --name mattersim_NEBs
+    deps:
+    - nodes/initialize/LoadDataFile/node-meta.json
+    metrics:
+    - nodes/mattersim/NEBs/node-meta.json:
+        cache: false
+    outs:
+    - nodes/mattersim/NEBs/frames.xyz
+    - nodes/mattersim/NEBs/neb_trajectory.traj
+    - nodes/mattersim/NEBs/results.csv
+    params:
+    - mattersim_NEBs
+  ocp_NEBs:
+    cmd: zntrack run mlipx.nodes.nebs.NEBs --name ocp_NEBs
+    deps:
+    - nodes/initialize/LoadDataFile/node-meta.json
+    metrics:
+    - nodes/ocp/NEBs/node-meta.json:
+        cache: false
+    outs:
+    - nodes/ocp/NEBs/frames.xyz
+    - nodes/ocp/NEBs/neb_trajectory.traj
+    - nodes/ocp/NEBs/results.csv
+    params:
+    - ocp_NEBs
+  orb_v2_NEBs:
+    cmd: zntrack run mlipx.nodes.nebs.NEBs --name orb_v2_NEBs
+    deps:
+    - nodes/initialize/LoadDataFile/node-meta.json
+    metrics:
+    - nodes/orb_v2/NEBs/node-meta.json:
+        cache: false
+    outs:
+    - nodes/orb_v2/NEBs/frames.xyz
+    - nodes/orb_v2/NEBs/neb_trajectory.traj
+    - nodes/orb_v2/NEBs/results.csv
+    params:
+    - orb_v2_NEBs
+  sevennet_NEBs:
+    cmd: zntrack run mlipx.nodes.nebs.NEBs --name sevennet_NEBs
+    deps:
+    - nodes/initialize/LoadDataFile/node-meta.json
+    metrics:
+    - nodes/sevennet/NEBs/node-meta.json:
+        cache: false
+    outs:
+    - nodes/sevennet/NEBs/frames.xyz
+    - nodes/sevennet/NEBs/neb_trajectory.traj
+    - nodes/sevennet/NEBs/results.csv
+    params:
+    - sevennet_NEBs
