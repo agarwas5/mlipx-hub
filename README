@@ -1,0 +1,11 @@
+NEBs are highly sensitive to path-end-points and MLIP. 
+Consequently, the effectiveness of MLIPs is highly sensitive to the initial path (reaction end-points) selected. Therefore, 100 neb paths featuring various glycerol conformer were calculated with 9 MLIPs using the MLIPX NEB recepie to determine the overall performance of mlips for glycerol-deoxygenation reaction. 
+In each folder 0-99, we ran single neb path with 9 mlips. 
+
+The computed trajectories were used to calculate:
+	- convergence ratio between different MLIPs (over all the folders)
+	- the range of differences (highest point energies and bond-distance) seen between all the different paths using different mlips
+	- find one NEB path (folder 31), which converged for all the MLIPs, to compare all the differences between MLIPs
+
+These results are presented in the reference paper. 
+
